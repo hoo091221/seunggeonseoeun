@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		
+	</head>
+	<body>
+		<section class="login-from">
+			<from actuon="">
+				<div class="logo">
+					<h1>
+						L O G I N
+					</h1>
+				</div>
+				<div class="int-area">
+					<input type="text" name="id" id="id" autocomplete="off" required />
+					<label for="id">USERNAME</label>
+				</div>
+
+				<div class="int-area">
+					<input type="password" name="pw" id="pw" autocomplete="off" required />
+					<label for="pw">PASSWORD</label>
+				</div>
+				<div class="btn-area">
+					<button id="btn" type="submit">
+						LOGIN
+					</button>
+				</div>
+
+				<div class="caption">
+					<a href="signup">forgot password?</a>
+				</div>
+			</from>
+		</section>
+		
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+				integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+				crossorigin="anonymous"></script>
+		
+		<script>
+			
+			
+			let id = $('#id');
+			let pw = $('#pw');
+			let btn = $('#btn');
+			
+			
+			
+			$(btn).on('click', function () {
+				if ($(id).val() == "") {
+					$(id).next('label').addClass('warning');
+					setTimeout(function() {
+						$('label').removeClass('warning');
+					},1500);
+				}
+				else if ($(pw).val() == "") {
+					$(pw).next('label').addClass('warning');
+					setTimeout(function() {
+						$('label').removeClass('warning');
+					},1500);
+					
+					
+				}
+			});
+		</script>
+	</body>
+</html>
