@@ -5,10 +5,25 @@
 	</head>
 		<body>
 			
-			<a href="javascript:kakaoLogin()"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png"></a>
+			<div class="kakaotalk">
+				<a href="javascript:kakaoLogin()"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height:60px;width:auto"></a>
+			</div>
+			
 			
 			<script src="https://developers.kakao.com/sdk/js/kakao.js">
 			</script>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<script>
 				//bdcbb7774c453ee68c7052f53033a687
 				window.Kakao.init("bdcbb7774c453ee68c7052f53033a687");
@@ -18,7 +33,8 @@
 						scope:'profile_nickname, profile_image',
 						success: function(authObj) {
 						console.log(authObj);
-						window.Kakao.API.request({
+			
+							window.Kakao.API.request({
 							url:'/v2/user/me',
 							success: res => {
 								const kakao_accont = res.kakao_accont;
@@ -29,6 +45,9 @@
 					});
 					
 				}
+			</script>
+			<script>
+			//U2M6hd3BVqELc3S_LxNP
 			</script>
 		</body>
 </html>
