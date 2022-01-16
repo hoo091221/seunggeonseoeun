@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="signupstyle.css" />
 	</head>
 		<body>
-			<h1>
-				테스트 용이고 아직 이거 안만듬
-			</h1>
+			
+			<a href="javascript:kakaoLogin()"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png"></a>
+			
+			<script src="https://developers.kakao.com/sdk/js/kakao.js">
+			</script>
 			<script>
 				//bdcbb7774c453ee68c7052f53033a687
+				window.Kakao.init("bdcbb7774c453ee68c7052f53033a687");
+				
+				function kakaoLogin() {
+					window.Kakao.Auth.login({
+						scope:'profile_nickname, profile_image',
+						success: function(authObj) {
+						console.log(authObj);
+						window.Kakao.API.request({
+							url:'/v2/user/me',
+							success: res => {
+								const kakao_accont = res.kakao_accont;
+								console.log(kakao_accont);
+							}
+						});
+					}
+					});
+					
+				}
 			</script>
 		</body>
 </html>
