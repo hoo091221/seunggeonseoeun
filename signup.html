@@ -3,51 +3,61 @@
 	<head>
 		<link rel="stylesheet" href="signupstyle.css" />
 	</head>
-		<body>
-			
-			<div class="kakaotalk">
-				<a href="javascript:kakaoLogin()"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height:60px;width:auto"></a>
-			</div>
-			
-			
-			<script src="https://developers.kakao.com/sdk/js/kakao.js">
-			</script>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<script>
-				//bdcbb7774c453ee68c7052f53033a687
-				window.Kakao.init("bdcbb7774c453ee68c7052f53033a687");
+	<body>
+		
+		<h1>
+			이승후 매우착함
+		</h1>
+		<!-- <section class="signup-from">
+			<from actuon="">
 				
-				function kakaoLogin() {
-					window.Kakao.Auth.login({
-						scope:'profile_nickname, profile_image',
-						success: function(authObj) {
+				<div class="int-area">
+					<input type="text" name="id" id="id" autocomplete="off" required />
+					<label for="id">USERNAME</label>
+				</div>
+
+				<div class="int-area">
+					<input type="password" name="pw" id="pw" autocomplete="off" required />
+					<label for="pw">PASSWORD</label>
+				</div>
+				<div class="btn-area">
+					<button id="btn" type="submit">
+						SIGN UP
+					</button>
+				</div>
+
+			</from>
+		</section> -->
+		
+		
+		<div class="kakaotalk">
+			<a href="javascript:kakaoLogin()"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 60px; width: auto;"/></a>
+		</div>
+		
+		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+		
+
+		
+		
+		<script>
+			//bdcbb7774c453ee68c7052f53033a687
+			window.Kakao.init('c50856e816d8a4645bcc1f35e0deb6b5');
+
+			function kakaoLogin() {
+				window.Kakao.Auth.login({
+					scope: 'profile_nickname, profile_image',
+					success: function (authObj) {
 						console.log(authObj);
-			
-							window.Kakao.API.request({
-							url:'/v2/user/me',
-							success: res => {
+						window.Kakao.API.request({
+							url: '/v2/user/me',
+							success: (res) => {
 								const kakao_accont = res.kakao_accont;
 								console.log(kakao_accont);
-							}
+							},
 						});
-					}
-					});
-					
-				}
-			</script>
-			<script>
-			//U2M6hd3BVqELc3S_LxNP
-			</script>
-		</body>
+					},
+				});
+			}
+		</script>
+	</body>
 </html>
